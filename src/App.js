@@ -13,10 +13,14 @@ import { db } from './firebase';
 
 
 function App() {
+  const [newTodo, setNewTodo] = useState('');
+  //create
   return (
     <div className="App">
       <header className="App-header">
-        
+        <input type="text" onChange={e => setNewTodo(e.target.value)} />
+        <button onClick={handleAddTodo}>Submit</button>
+
       </header>
     </div>
   );
