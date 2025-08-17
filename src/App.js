@@ -20,7 +20,7 @@ function App() {
   //create
   const createtodo = async (e) => {
     e.preventDefault();
-    if(newTodo.trim()) return;
+    if(!newTodo.trim()) return;
     await addDoc(todosRef, { text: newTodo });
     setNewTodo('');
   };
