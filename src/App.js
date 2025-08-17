@@ -37,14 +37,19 @@ function App() {
     setNewTodo('');
   };
 
+  //delete
+  const deleteTodo = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <input type="text" onChange={e => setNewTodo(e.target.value)} />
         <button onClick={createtodo}>Submit</button>
         {todos.map(todo => (
-          <div>{todo.text}
-          <button>delete</button>
+          <div key={todo.id}>{todo.text}
+          <button onClick={() => deleteTodo(todo.id)}>delete</button>
           </div>
           
         ))}
