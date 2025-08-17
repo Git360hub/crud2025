@@ -42,7 +42,11 @@ function App() {
       <header className="App-header">
         <input type="text" onChange={e => setNewTodo(e.target.value)} />
         <button onClick={createtodo}>Submit</button>
-
+        {todos.map(todo => (
+          <div>
+            {todo.text}
+          </div>
+        ))}
       </header>
     </div>
   );
