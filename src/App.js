@@ -50,6 +50,7 @@ function App() {
         {todos.map(todo => (
           <div key={todo.id}>{todo.text}
           <button onClick={() => deleteTodo(todo.id)}>delete</button>
+          <button>Edit</button>
           </div>
           
         ))}
