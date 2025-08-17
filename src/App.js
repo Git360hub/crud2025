@@ -43,9 +43,10 @@ function App() {
         <input type="text" onChange={e => setNewTodo(e.target.value)} />
         <button onClick={createtodo}>Submit</button>
         {todos.map(todo => (
-          <div>
-            {todo.text}
+          <div>{todo.text}
+          <button>delete</button>
           </div>
+          
         ))}
       </header>
     </div>
