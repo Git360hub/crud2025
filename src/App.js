@@ -14,12 +14,17 @@ import { db } from './firebase';
 
 function App() {
   const [newTodo, setNewTodo] = useState('');
+
+  const todosRef = collection(db, 'todos');
+
   //create
   const createtodo = async (e) => {
-    if (newTodo === '') return;
-    await addDoc(collection(db, 'todos'), { text: newTodo });
+    e.preventDefault();
+    if(newTodo.trim()) return;
+    await addDoc(todosRef, { text: newTodo });
     setNewTodo('');
   };
+
   return (
     <div className="App">
       <header className="App-header">
