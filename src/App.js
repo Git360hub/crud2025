@@ -14,8 +14,20 @@ import { db } from './firebase';
 
 function App() {
   const [newTodo, setNewTodo] = useState('');
+  const [todos, setTodos] = useState([]);
 
   const todosRef = collection(db, 'todos');
+
+  //read
+  useEffect(() => {
+    onSnapshot(todosRef, (snapshot) => {
+      const items = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setTodos(items);
+    });
+  }, []);
 
   //create
   const createtodo = async (e) => {
